@@ -39,10 +39,10 @@
   --cell-gap: clamp(5px, 1.15vmin, 12px);
   /* 正方形键帽圆角（与 .cell-cap overflow 裁剪图片一致） */
   --cap-radius: clamp(10px, 2vmin, 16px);
-  --device-pad-x: clamp(14px, 3.2vmin, 28px);
-  --device-pad-y: clamp(16px, 3vmin, 32px);
+  --device-pad-x: clamp(10px, 2.4vmin, 22px);
+  --device-pad-y: clamp(10px, 2.2vmin, 24px);
   --device-radius: clamp(22px, 4.5vmin, 40px);
-  --board-pad: clamp(8px, 1.7vmin, 18px);
+  --board-pad: clamp(5px, 1.2vmin, 14px);
   --board-max-w: min(100%, min(96vw, 78vmin, 720px));
   --board-max-h: min(82dvh, min(74vmin, 640px));
 }
@@ -80,10 +80,10 @@ body {
 .app.device {
   width: min(
     100%,
-    calc(100vw - max(12px, var(--safe-x) * 2))
+    calc(100vw - max(8px, var(--safe-x) * 2))
   );
-  max-width: min(96vw, 720px);
-  margin: max(8px, var(--safe-top)) auto max(10px, var(--safe-bottom));
+  max-width: min(98vw, 720px);
+  margin: max(4px, var(--safe-top)) auto max(6px, var(--safe-bottom));
   min-height: 100dvh;
   min-height: 100svh;
   display: flex;
@@ -97,7 +97,7 @@ body {
 
 /* —— HUD：小条 + 主屏幕 —— */
 .hud.device__top {
-  margin-bottom: clamp(12px, 2.2vmin, 22px);
+  margin-bottom: clamp(6px, 1.4vmin, 14px);
 }
 
 .lcd {
@@ -111,8 +111,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(8px, 1.6vmin, 14px) clamp(12px, 2.2vmin, 18px);
-  margin-bottom: clamp(8px, 1.4vmin, 14px);
+  padding: clamp(6px, 1.2vmin, 11px) clamp(10px, 1.8vmin, 14px);
+  margin-bottom: clamp(5px, 1vmin, 10px);
   border-radius: 0;
 }
 
@@ -134,7 +134,7 @@ body {
 }
 
 .lcd--main {
-  padding: clamp(12px, 2.4vmin, 22px) clamp(14px, 2.6vmin, 24px) clamp(14px, 2.6vmin, 24px);
+  padding: clamp(8px, 1.6vmin, 16px) clamp(10px, 1.8vmin, 18px) clamp(10px, 1.8vmin, 18px);
   border-radius: 0;
 }
 
@@ -142,19 +142,19 @@ body {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: clamp(10px, 2vmin, 18px);
+  gap: clamp(8px, 1.5vmin, 14px);
 }
 
 .lcd__row--level {
-  margin-bottom: clamp(8px, 1.5vmin, 14px);
-  padding-bottom: clamp(8px, 1.5vmin, 14px);
+  margin-bottom: clamp(5px, 1vmin, 10px);
+  padding-bottom: clamp(5px, 1vmin, 10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .lcd__row--scores {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(10px, 2vmin, 20px);
+  gap: clamp(8px, 1.5vmin, 16px);
   align-items: start;
 }
 
@@ -228,7 +228,7 @@ body {
   box-sizing: border-box;
   min-height: 0;
   touch-action: manipulation;
-  padding: clamp(3px, 0.75vmin, 9px);
+  padding: clamp(2px, 0.55vmin, 7px);
   border-radius: 0;
   background: transparent;
   border: 0;
@@ -318,10 +318,10 @@ body {
 }
 
 .btn-key {
-  padding: clamp(16px, 3.4vmin, 24px) clamp(30px, 7vmin, 56px);
+  padding: clamp(18px, 4vmin, 28px) clamp(34px, 8vmin, 64px);
   border-radius: 255px 20px 240px 20px / 20px 245px 20px 255px;
-  font-size: clamp(1.02rem, 3vmin, 1.28rem);
-  min-height: clamp(52px, 10vmin, 68px);
+  font-size: clamp(1.1rem, 3.4vmin, 1.38rem);
+  min-height: clamp(58px, 12vmin, 76px);
   color: var(--ink);
   background: #fffef6;
   border: 0;
@@ -383,8 +383,8 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
-    max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right))
+    max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -401,8 +401,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
-    max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   pointer-events: none;
   background: radial-gradient(
     ellipse 90% 75% at 50% 40%,
@@ -509,7 +509,7 @@ body {
   background: linear-gradient(168deg, #fffef8 0%, #e7f5ff 48%, #fff9e0 100%);
   border-radius: 250px 20px 255px 22px / 22px 248px 20px 252px;
   border: 3px solid var(--ink);
-  padding: clamp(20px, 3.2vmin, 30px) clamp(20px, 3.2vmin, 28px) clamp(22px, 3.4vmin, 32px);
+  padding: clamp(16px, 2.6vmin, 24px) clamp(16px, 2.6vmin, 22px) clamp(18px, 2.8vmin, 26px);
   max-width: min(92vw, 400px);
   width: min(100%, 400px);
   flex: 0 0 auto;
@@ -637,13 +637,13 @@ body {
 .modal-actions {
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 2vmin, 16px);
+  gap: clamp(8px, 1.6vmin, 14px);
   width: 100%;
 }
 
 .modal-actions .btn {
   width: 100%;
-  min-height: clamp(54px, 10vmin, 70px);
+  min-height: clamp(60px, 12vmin, 78px);
   line-height: 1.25;
   white-space: normal;
 }
@@ -663,17 +663,17 @@ body {
 /* 窄屏手机：再加大触控区与字号（弹窗按钮等） */
 @media (max-width: 480px) {
   .btn-key {
-    padding: clamp(18px, 4.2vmin, 24px) clamp(24px, 8vw, 40px);
-    font-size: clamp(1.08rem, 3.8vmin, 1.32rem);
-    min-height: clamp(56px, 12vmin, 74px);
+    padding: clamp(20px, 4.8vmin, 28px) clamp(20px, 9vw, 44px);
+    font-size: clamp(1.14rem, 4.2vmin, 1.4rem);
+    min-height: clamp(62px, 14vmin, 82px);
   }
 
   .modal-actions .btn {
-    min-height: clamp(58px, 12vmin, 76px);
+    min-height: clamp(64px, 14vmin, 84px);
   }
 
   .modal-actions {
-    gap: clamp(12px, 2.8vmin, 18px);
+    gap: clamp(10px, 2.2vmin, 16px);
   }
 }
 
