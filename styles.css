@@ -116,6 +116,23 @@ body {
   border-radius: 0;
 }
 
+.lcd__brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.6vmin, 14px);
+  min-width: 0;
+}
+
+.lcd__logo {
+  width: clamp(28px, 7vmin, 42px);
+  height: clamp(28px, 7vmin, 42px);
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+  border-radius: clamp(8px, 1.6vmin, 12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
 .lcd__label {
   font-family: "Patrick Hand", "ZCOOL KuaiLe", cursive;
   font-size: clamp(1.05rem, 3vmin, 1.5rem);
