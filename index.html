@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>Puppy Bonk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=ZCOOL+KuaiLe&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app device">
+      <header class="hud device__top">
+        <div class="lcd lcd--status" aria-hidden="true">
+          <span class="lcd__label">Puppy Bonk</span>
+          <span class="lcd__led"></span>
+        </div>
+        <div class="lcd lcd--main">
+          <div class="lcd__row lcd__row--level">
+            <span class="lcd__hint">关卡</span>
+            <span id="levelNum" class="lcd__num">1</span>
+          </div>
+          <div class="lcd__row lcd__row--scores">
+            <div class="lcd__metric">
+              <span class="lcd__hint">得分</span>
+              <span id="totalScore" class="lcd__num lcd__num--wide">0</span>
+            </div>
+            <div class="lcd__metric lcd__metric--target">
+              <span class="lcd__hint">目标</span>
+              <span id="targetScore" class="lcd__num lcd__num--wide">0</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="board-wrap device__screen-wrap">
+        <div class="board-well">
+          <div id="board" class="board" role="grid" aria-label="Puppy Bonk board"></div>
+        </div>
+      </main>
+
+      <div id="toast" class="toast" hidden aria-live="polite"></div>
+
+      <div id="levelSplash" class="level-splash" hidden role="status">
+        <div class="level-splash__card">
+          <p class="level-splash__kicker">关卡提升</p>
+          <p class="level-splash__level">
+            已进入第 <span id="levelSplashNum" class="level-splash__level-num">1</span> 关
+          </p>
+          <p class="level-splash__target-label">截至本关目标</p>
+          <p id="levelSplashTarget" class="level-splash__target-num">0</p>
+          <p id="levelSplashNextWrap" class="level-splash__next" hidden>
+            下一关目标：<span id="levelSplashNextTarget">0</span> 分
+          </p>
+          <p class="level-splash__hint">轻触屏幕继续</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h2 id="modalTitle" class="modal-title"></h2>
+        <p id="modalBody" class="modal-body"></p>
+        <div class="modal-actions">
+          <button type="button" id="btnModalPrimary" class="btn btn-key btn-primary"></button>
+          <button type="button" id="btnModalSecondary" class="btn btn-key" hidden></button>
+        </div>
+      </div>
+    </div>
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
