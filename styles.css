@@ -36,15 +36,15 @@
    * 用于间距、圆角、部分字号
    */
   --ui-scale: clamp(1, 0.35vmin + 0.72, 1.38);
-  --cell-gap: clamp(6px, 1.4vmin, 14px);
+  --cell-gap: clamp(5px, 1.15vmin, 12px);
   /* 正方形键帽圆角（与 .cell-cap overflow 裁剪图片一致） */
   --cap-radius: clamp(10px, 2vmin, 16px);
   --device-pad-x: clamp(14px, 3.2vmin, 28px);
   --device-pad-y: clamp(16px, 3vmin, 32px);
   --device-radius: clamp(22px, 4.5vmin, 40px);
-  --board-pad: clamp(10px, 2vmin, 20px);
-  --board-max-w: min(100%, min(94vw, 72vmin, 680px));
-  --board-max-h: min(78dvh, min(62vmin, 580px));
+  --board-pad: clamp(8px, 1.7vmin, 18px);
+  --board-max-w: min(100%, min(96vw, 78vmin, 720px));
+  --board-max-h: min(82dvh, min(74vmin, 640px));
 }
 
 *,
@@ -228,7 +228,7 @@ body {
   box-sizing: border-box;
   min-height: 0;
   touch-action: manipulation;
-  padding: clamp(4px, 0.9vmin, 10px);
+  padding: clamp(3px, 0.75vmin, 9px);
   border-radius: 0;
   background: transparent;
   border: 0;
@@ -318,10 +318,10 @@ body {
 }
 
 .btn-key {
-  padding: clamp(14px, 2.8vmin, 22px) clamp(28px, 6vmin, 52px);
+  padding: clamp(16px, 3.4vmin, 24px) clamp(30px, 7vmin, 56px);
   border-radius: 255px 20px 240px 20px / 20px 245px 20px 255px;
-  font-size: clamp(0.95rem, 2.2vmin, 1.2rem);
-  min-height: clamp(48px, 8vmin, 62px);
+  font-size: clamp(1.02rem, 3vmin, 1.28rem);
+  min-height: clamp(52px, 10vmin, 68px);
   color: var(--ink);
   background: #fffef6;
   border: 0;
@@ -643,7 +643,7 @@ body {
 
 .modal-actions .btn {
   width: 100%;
-  min-height: clamp(50px, 8vmin, 64px);
+  min-height: clamp(54px, 10vmin, 70px);
   line-height: 1.25;
   white-space: normal;
 }
@@ -658,6 +658,23 @@ body {
 
 .overlay .modal .btn-primary.btn-key:active {
   box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* 窄屏手机：再加大触控区与字号（弹窗按钮等） */
+@media (max-width: 480px) {
+  .btn-key {
+    padding: clamp(18px, 4.2vmin, 24px) clamp(24px, 8vw, 40px);
+    font-size: clamp(1.08rem, 3.8vmin, 1.32rem);
+    min-height: clamp(56px, 12vmin, 74px);
+  }
+
+  .modal-actions .btn {
+    min-height: clamp(58px, 12vmin, 76px);
+  }
+
+  .modal-actions {
+    gap: clamp(12px, 2.8vmin, 18px);
+  }
 }
 
 @media (min-width: 400px) {
@@ -676,8 +693,8 @@ body {
 /* 大屏 Web：再放宽整机宽度上限，棋盘用更大 vmin */
 @media (min-width: 900px) {
   :root {
-    --board-max-w: min(100%, min(80vw, 76vmin, 760px));
-    --board-max-h: min(72dvh, min(58vmin, 600px));
+    --board-max-w: min(100%, min(82vw, 80vmin, 800px));
+    --board-max-h: min(76dvh, min(64vmin, 660px));
   }
 
   .app.device {
@@ -688,7 +705,7 @@ body {
 /* 横屏手机：高度紧张，略压棋盘高度、保证一屏可操作 */
 @media (orientation: landscape) and (max-height: 520px) {
   :root {
-    --board-max-h: min(58dvh, 52vmin);
+    --board-max-h: min(62dvh, 56vmin);
   }
 
   .app.device {
