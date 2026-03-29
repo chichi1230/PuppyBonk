@@ -660,6 +660,30 @@ body {
   box-shadow: 1px 1px 0 var(--ink);
 }
 
+/*
+ * 手机端：棋盘尽量贴屏幕两侧，并略抬棋盘边长（vmin / dvh）
+ * 与刘海安全区仍由 env(safe-area-*) + .app padding 负责
+ */
+@media screen and (max-width: 600px) {
+  :root {
+    --device-pad-x: clamp(0px, 0.5vmin, 4px);
+    --device-pad-y: clamp(3px, 1vmin, 10px);
+    --board-pad: clamp(0px, 0.2vmin, 3px);
+    --board-max-w: min(100%, min(100vw, 88vmin, 720px));
+    --board-max-h: min(88dvh, min(84vmin, 700px));
+  }
+
+  .app.device {
+    width: min(100%, calc(100vw - max(0px, var(--safe-x) * 2)));
+    max-width: 100%;
+    margin: max(0px, var(--safe-top)) auto max(2px, var(--safe-bottom));
+  }
+
+  .board {
+    padding: clamp(0px, 0.25vmin, 3px);
+  }
+}
+
 /* 窄屏手机：再加大触控区与字号（弹窗按钮等） */
 @media (max-width: 480px) {
   .btn-key {
@@ -702,13 +726,23 @@ body {
   }
 }
 
-/* 横屏手机：高度紧张，略压棋盘高度、保证一屏可操作 */
+/* 横屏手机：高度紧张，略压棋盘高度、保证一屏可操作；左右留白与竖屏手机一致收紧 */
 @media (orientation: landscape) and (max-height: 520px) {
   :root {
-    --board-max-h: min(62dvh, 56vmin);
+    --device-pad-x: clamp(0px, 0.5vmin, 4px);
+    --device-pad-y: clamp(2px, 0.85vmin, 8px);
+    --board-pad: clamp(0px, 0.2vmin, 3px);
+    --board-max-h: min(66dvh, 60vmin);
   }
 
   .app.device {
     min-height: auto;
+    width: min(100%, calc(100vw - max(0px, var(--safe-x) * 2)));
+    max-width: 100%;
+    margin: max(0px, var(--safe-top)) auto max(2px, var(--safe-bottom));
+  }
+
+  .board {
+    padding: clamp(0px, 0.25vmin, 3px);
   }
 }
